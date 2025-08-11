@@ -28,7 +28,7 @@ A RESTful API built with Python and Flask to manage clients and invoices securel
 
 ## How to Run Locally
 
-Clone the repo:
+1. **Clone the repo:**
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/client-manager-api.git
@@ -120,7 +120,7 @@ CORS is enabled in this project’s Flask backend to allow frontend-backend comm
 ## Running Tests
 
  Run all tests with:
- 
+
     Currently, this project does not include automated tests. Tests will be added in future updates to improve reliability and coverage.
     
 ## Contributing

@@ -30,10 +30,10 @@ A RESTful API built with Python and Flask to manage clients and invoices securel
 
 1. **Clone the repo:**
 
-```bash
-git clone https://github.com/YOUR_USERNAME/client-manager-api.git
-cd client-manager-api
-```
+    ```bash
+    git clone https://github.com/YOUR_USERNAME/client-manager-api.git
+    cd client-manager-api
+    ```
 2. **Create and activate a virtual environment (recommended)**
     ```bash
     python3 -m venv venv

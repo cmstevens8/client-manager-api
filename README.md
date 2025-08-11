@@ -53,6 +53,51 @@ cd client-manager-api
 [http://127.0.0.1:5000/book?title=The+Great+Gatsby](http://127.0.0.1:5000/
 )
 
+## Frontend
+
+This project includes a simple frontend client built with vanilla HTML, CSS, and JavaScript to interact with the Flask backend API.
+
+### Frontend Features
+
+- User authentication (login/register/logout) using JWT tokens  
+- View and manage clients  
+- Add new clients  
+- View invoices by selected client  
+- Add new invoices with amount, description, due date, and status  
+- Auto-formatting for phone numbers and currency inputs  
+- Auto-logout after 20 minutes of inactivity  
+
+### How to Run the Frontend Locally
+
+1. **Serve the frontend files**  
+   You can open `index.html` directly in your browser, but for full functionality and to avoid CORS issues, it's recommended to serve the files via a simple HTTP server.
+
+2. **Using Python’s built-in HTTP server (optional)**
+
+   From the directory containing `index.html`, run:
+
+   ```bash
+   python3 -m http.server 8000
+   ```
+Then open [http://localhost:8000](http://localhost:8000) in your browser.
+
+### Ensure the backend API is running locally
+
+The frontend expects the backend API to be accessible at `http://127.0.0.1:5000`.  
+Make sure you have the Flask API running as described above.
+
+---
+
+### Note on CORS
+
+CORS is enabled in this project’s Flask backend to allow frontend-backend communication without cross-origin errors.
+
+### Frontend File Summary
+
+- **index.html**: The main HTML page with login/register forms and client/invoice management UI  
+- **app.js**: JavaScript handling authentication, API requests, UI updates, and inactivity logout  
+- **styles.css**: Basic styles for layout and UI components
+
 ## API Endpoints
 
 | Method | Endpoint           | Description                          |
@@ -75,9 +120,9 @@ cd client-manager-api
 ## Running Tests
 
  Run all tests with:
-    ```bash
+ 
     Currently, this project does not include automated tests. Tests will be added in future updates to improve reliability and coverage.
-    ```
+    
 ## Contributing
 
 Feel free to open issues or submit pull requests if you want to contribute or suggest improvements!

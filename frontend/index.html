@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Client Manager Frontend</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    h2 { margin-top: 0; }
+    input, select, button {
+      font-size: 1rem;
+      margin: 5px 0;
+      padding: 8px;
+    }
+    label { display: block; margin-top: 10px; }
+    #auth-section, #app-section {
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    .hidden { display: none; }
+    .inline-inputs input {
+      display: inline-block;
+      width: calc(50% - 12px);
+      margin-right: 12px;
+      box-sizing: border-box;
+    }
+    ul { list-style: none; padding-left: 0; }
+    ul li {
+      padding: 5px 10px;
+      border: 1px solid #ddd;
+      margin: 3px 0;
+      cursor: pointer;
+    }
+    ul li.selected { background-color: #cef; font-weight: bold; }
+    #logout-btn { margin-top: 10px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div id="auth-section">
+    <div id="login-section">
+      <h2>Login</h2>
+      <form id="login-form">
+        <label>Email</label>
+        <input type="email" id="login-email" name="email" required autocomplete="username" />
+        <label>Password</label>
+        <input type="password" id="login-password" name="password" required autocomplete="current-password" />
+        <button type="submit">Login</button>
+      </form>
+      <p id="login-error" style="color:red;"></p>
+      <p>
+        Don't have an account? 
+        <a href="#" id="show-register">Register here</a>
+      </p>
+    </div>
+
+    <div id="register-section" style="display:none;">
+      <h2>Register</h2>
+      <form id="register-form">
+        <div class="inline-inputs">
+          <input type="text" id="reg-first-name" name="reg-first-name" placeholder="First Name" required autocomplete="given-name" />
+          <input type="text" id="reg-last-name" name="reg-last-name" placeholder="Last Name" required autocomplete="family-name" />
+        </div>
+        <label>Email</label>
+        <input type="email" id="reg-email" name="reg-email" placeholder="example@example.com" required autocomplete="email" />
+        <div class="inline-inputs">
+          <input type="password" id="reg-password" name="reg-password" placeholder="Password" required autocomplete="new-password" />
+          <input type="password" id="reg-password-confirm" name="reg-password-confirm" placeholder="Re-enter Password" required autocomplete="new-password" />
+        </div>
+        <button type="submit">Register</button>
+      </form>
+      <p id="register-error" style="color:red;"></p>
+      <p>
+        Already have an account? 
+        <a href="#" id="show-login">Login here</a>
+      </p>
+    </div>
+  </div>
+
+  <div id="app-section" style="display:none;">
+    <button id="logout-btn">Logout</button>
+
+    <h2>Clients</h2>
+    <ul id="client-list"></ul>
+
+    <h3>Add Client</h3>
+    <form id="add-client-form">
+      <div class="inline-inputs">
+        <input type="text" id="client-first-name" name="client-first-name" placeholder="First Name" required autocomplete="given-name" />
+        <input type="text" id="client-last-name" name="client-last-name" placeholder="Last Name" required autocomplete="family-name" />
+      </div>
+      <label>Email</label>
+      <input type="email" id="client-email" name="client-email" placeholder="client@example.com" required autocomplete="email" />
+      <label>Phone</label>
+      <input type="text" id="client-phone" name="client-phone" placeholder="(123)456-7890" autocomplete="tel" />
+      <button type="submit">Add Client</button>
+    </form>
+
+    <h2 id="selected-client-name"></h2>
+
+    <h3>Invoices</h3>
+    <ul id="invoice-list"></ul>
+
+    <form id="add-invoice-form" style="display:none;">
+      <input
+        type="text"
+        id="invoice-amount"
+        name="invoice-amount"
+        placeholder="Amount"
+        autocomplete="off"
+        required
+      />
+      <input type="text" id="invoice-description" name="invoice-description" placeholder="Description" />
+      <input type="date" id="invoice-due-date" name="invoice-due-date" />
+      <select id="invoice-status" name="invoice-status">
+        <option value="unpaid" selected>Unpaid</option>
+        <option value="paid">Paid</option>
+        <option value="overdue">Overdue</option>
+      </select>
+      <button type="submit">Add Invoice</button>
+    </form>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
